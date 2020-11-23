@@ -1,0 +1,29 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+
+<suite name="Calculator" verbose="1" parallel="classes" thread-count="3" >
+    <test name="TestArithmetic" >
+        <groups>
+            <run>
+                <include name = "BasicOperations" />
+            </run>
+        </groups>
+        <classes>
+            <class name="HW3.TestSumLong" />
+            <class name="HW3.TestDivLong" />
+            <class name="HW3.TestSubLong" />
+            <class name="HW3.TestMultLong" />
+        </classes>
+    </test>
+    <test name="TestTrigonometry" >
+        <parameter name="ExpectedResult" value='-1.0'/>
+        <groups>
+            <run>
+                <include name = "BasicFunction" />
+            </run>
+        </groups>
+        <classes>
+            <class name="HW3.TestCos" />
+            <class name="HW3.TestTg" />
+        </classes>
+    </test>
+</suite>
