@@ -18,6 +18,11 @@ public class TestDivLong {
         Assert.assertEquals(result, 2, "Частное не совпадает!");
     }
 
+    @Test(expectedExceptions = { NumberFormatException.class })
+    public void testDivNull() {
+        calculator.div(6,0);
+    }
+
     @AfterClass
     public void TearDown() {
         calculator = null;

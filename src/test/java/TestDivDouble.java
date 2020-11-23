@@ -18,6 +18,12 @@ public class TestDivDouble {
         Assert.assertEquals(8, result, 0);
     }
 
+    @Test(expected = NumberFormatException.class )
+    public void testDivNull() {
+        calculator.div(5,0);
+    }
+
+
     @AfterClass
     public static void TearDown() {
         calculator = null;
