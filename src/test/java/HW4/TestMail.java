@@ -7,14 +7,13 @@ import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 /**
  * Класс автотеста для Яндекс почты
  */
-public class TestMail {
+public class TestMail extends BaseTest{
     private WebDriver driver;
 
     /**
@@ -57,27 +56,17 @@ public class TestMail {
 
         Thread.sleep(3000);
 
-        /*Закрытие главной Яндекса и переход на открытую вкладку логина*/
-        ArrayList<String> tabs2 = new ArrayList<>(driver.getWindowHandles());
-        driver.switchTo().window(tabs2.get(0));
-        driver.close();
-        driver.switchTo().window(tabs2.get(1));
-
-        Thread.sleep(3000);
+        switchTab(driver);
 
         /*Ввод логина*/
-        driver.findElement(By.xpath(xPathLogin)).
-                sendKeys(login);
-        driver.findElement(By.xpath("//*[contains(@class,'passp-sign-in-button')]")).
-                click();
+        driver.findElement(By.xpath(xPathLogin)).sendKeys(login);
+        driver.findElement(By.xpath("//*[contains(@class,'passp-sign-in-button')]")).click();
 
         Thread.sleep(3000);
 
         /*Ввод пароля*/
-        driver.findElement(By.xpath(xPathPass)).
-                sendKeys(password);
-        driver.findElement(By.xpath("//*[contains(@class,'passp-sign-in-button')]")).
-                click();
+        driver.findElement(By.xpath(xPathPass)).sendKeys(password);
+        driver.findElement(By.xpath("//*[contains(@class,'passp-sign-in-button')]")).click();
 
         Thread.sleep(5000);
 
